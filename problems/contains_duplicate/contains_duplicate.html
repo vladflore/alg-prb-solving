@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contains Duplicate - Cheat Sheet</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #2c3e50;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8edf2 100%);
+        padding: 1.5rem;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      .content-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 1.5rem;
+      }
+
+      .main-content,
+      .implementation-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .solutions-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 0;
+      }
+
+      .solution-column {
+        display: flex;
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #1a252f;
+        margin-bottom: 0.3rem;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 0.3rem;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2980b9;
+        margin-bottom: 0.75rem;
+        padding-left: 0.5rem;
+        border-left: 4px solid #3498db;
+        letter-spacing: -0.01em;
+      }
+
+      .section {
+        margin-bottom: 0;
+      }
+
+      .problem-box {
+        background: #ecf0f1;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 0.5rem 0;
+        font-size: 0.85rem;
+      }
+
+      .intuition-box {
+        background: #e8f8f5;
+        padding: 1rem;
+        border-radius: 5px;
+        font-size: 0.9rem;
+      }
+
+      .algorithm-steps {
+        background: #fef9e7;
+        padding: 1rem;
+        border-radius: 5px;
+        font-size: 0.9rem;
+      }
+
+      .algorithm-steps ol {
+        margin-left: 1.2rem;
+      }
+
+      .algorithm-steps li {
+        margin-bottom: 0.4rem;
+      }
+
+      .edge-cases ul {
+        margin-left: 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .edge-cases li {
+        margin-bottom: 0.4rem;
+      }
+
+      .complexity-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0.5rem 0;
+        font-size: 0.9rem;
+      }
+
+      .complexity-table th,
+      .complexity-table td {
+        padding: 0.5rem;
+        border: 1px solid #bdc3c7;
+        text-align: left;
+      }
+
+      .complexity-table th {
+        background: #34495e;
+        color: white;
+        font-weight: 600;
+      }
+
+      .complexity-table tr:nth-child(even) {
+        background: #f8f9fa;
+      }
+
+      pre {
+        background: transparent;
+        color: #abb2bf;
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-family: "JetBrains Mono", "Fira Code", "Courier New", monospace;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin: 0;
+        border: 1px solid #e0e0e0;
+      }
+
+      pre code {
+        background: transparent;
+        padding: 0;
+        color: inherit;
+      }
+
+      .code-label {
+        background: transparent;
+        color: #34495e;
+        padding: 0.3rem 0.75rem;
+        border-radius: 5px 5px 0 0;
+        font-weight: 600;
+        display: inline-block;
+        font-size: 1rem;
+        letter-spacing: 0.01em;
+      }
+
+      .code-label i {
+        margin-right: 0.5rem;
+        color: #2c3e50;
+      }
+
+      code {
+        font-family: "JetBrains Mono", "Fira Code", "Courier New", monospace;
+        background: #ecf0f1;
+        padding: 0.15rem 0.35rem;
+        border-radius: 3px;
+        color: #c7254e;
+        font-size: 0.88rem;
+      }
+
+      .highlight {
+        background: #fff3cd;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+      }
+
+      .code-block {
+        background: transparent;
+        border: none;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+        box-shadow: none;
+      }
+
+      .code-block pre {
+        margin: 0;
+        border-radius: 0;
+      }
+
+      .code-block .code-label {
+        margin-top: 0;
+      }
+
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+          margin: 0;
+        }
+
+        .container {
+          max-width: 100%;
+          margin: 0;
+          padding: 0.4rem;
+          box-shadow: none;
+          border-radius: 0;
+        }
+
+        h1 {
+          font-size: 1.2rem;
+          margin-bottom: 0.15rem;
+          page-break-after: avoid;
+          break-after: avoid;
+          padding-bottom: 0.15rem;
+          border-bottom-width: 2px;
+        }
+
+        h2 {
+          margin-top: 0.15rem;
+          margin-bottom: 0.3rem;
+          font-size: 0.95rem;
+          page-break-after: avoid;
+          break-after: avoid;
+          padding-left: 0.3rem;
+        }
+
+        h3 {
+          margin-top: 0.15rem;
+          margin-bottom: 0.25rem;
+          font-size: 0.85rem;
+        }
+
+        .content-grid {
+          gap: 0.25rem;
+          margin-top: 0.4rem;
+        }
+
+        .main-content,
+        .implementation-section {
+          gap: 0.4rem;
+        }
+
+        .section {
+          margin-bottom: 0.25rem;
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+
+        .solutions-grid {
+          gap: 0.4rem;
+          margin-top: 0;
+        }
+
+        .solution-column {
+          margin-bottom: 0;
+        }
+
+        .problem-box,
+        .intuition-box,
+        .algorithm-steps {
+          padding: 0.4rem;
+          font-size: 0.7rem;
+          page-break-inside: avoid;
+          break-inside: avoid;
+          margin: 0.2rem 0;
+          line-height: 1.3;
+        }
+
+        .main-content > .section:nth-child(1),
+        .main-content > .section:nth-child(2) {
+          page-break-after: avoid;
+          break-after: avoid;
+          page-break-before: avoid;
+          break-before: avoid;
+        }
+
+        .main-content > .section:nth-child(2) {
+          page-break-after: always;
+          break-after: page;
+        }
+
+        .main-content > .section:nth-child(3) {
+          page-break-inside: avoid;
+          break-inside: avoid;
+          page-break-after: avoid;
+          break-after: avoid;
+        }
+
+        .main-content > .solutions-grid:nth-child(4) {
+          page-break-inside: avoid;
+          break-inside: avoid;
+          page-break-after: avoid;
+          break-after: avoid;
+        }
+
+        .main-content > .solutions-grid:nth-child(4) {
+          page-break-after: always;
+          break-after: page;
+        }
+
+        .implementation-section {
+          page-break-before: always;
+          break-before: page;
+        }
+
+        .code-implementations-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.5rem;
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+
+        .code-implementations-grid .code-block {
+          margin: 0;
+        }
+
+        .code-block {
+          margin-bottom: 0.25rem;
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+
+        .code-label {
+          padding: 0.2rem 0.4rem;
+          font-size: 0.75rem;
+        }
+
+        table {
+          font-size: 0.7rem;
+          page-break-inside: avoid;
+          break-inside: avoid;
+          margin: 0.2rem 0;
+        }
+
+        .complexity-table th,
+        .complexity-table td {
+          padding: 0.25rem;
+        }
+
+        ul,
+        ol {
+          margin-left: 0.8rem;
+          font-size: 0.7rem;
+        }
+
+        li {
+          margin-bottom: 0.1rem;
+        }
+
+        pre {
+          font-size: 0.65rem;
+          padding: 0.4rem;
+          line-height: 1.25;
+        }
+
+        p {
+          margin-top: 0.2rem;
+          margin-bottom: 0.2rem;
+        }
+
+        strong {
+          font-size: 0.7rem;
+        }
+
+        code {
+          font-size: 0.68rem;
+          padding: 0.1rem 0.25rem;
+        }
+
+        .highlight {
+          padding: 0.1rem 0.3rem;
+        }
+
+        br {
+          line-height: 1.2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Contains Duplicate</h1>
+
+      <div class="content-grid">
+        <div class="main-content">
+          <div class="section">
+            <h2>Problem</h2>
+            <div class="problem-box">
+              Given an integer array <code>nums</code>, return <code>true</code>
+              if any value appears at least twice in the array, and return
+              <code>false</code> if every element is distinct. <br /><br />
+              <strong>Input:</strong> Integer array <code>nums</code>.<br />
+              <strong>Output:</strong> Boolean indicating if duplicates
+              exist.<br />
+              <strong>Constraints:</strong> <code>1 ≤ nums.length ≤ 10^5</code>.
+              <br /><br />
+              <strong>Example:</strong><br />
+              Input: nums = [1, 2, 3, 1]<br />
+              Output: true<br />
+              Explanation: The value <code>1</code> appears at least twice.
+            </div>
+          </div>
+
+          <div class="section">
+            <h2>Solutions</h2>
+
+            <div class="solutions-grid">
+              <div class="solution-column">
+                <h3
+                  style="
+                    font-size: 1rem;
+                    color: #34495e;
+                    margin: 0 0 0.75rem 0;
+                    padding-left: 0;
+                    border-left: none;
+                  "
+                >
+                  <i
+                    class="fas fa-circle-exclamation"
+                    style="color: #e67e22; margin-right: 0.5rem"
+                  ></i
+                  >Suboptimal Solutions
+                </h3>
+                <div
+                  style="
+                    background: #f5f5f5;
+                    padding: 1rem;
+                    border-radius: 5px;
+                    font-size: 0.9rem;
+                  "
+                >
+                  <p style="margin-bottom: 0.5rem">
+                    <strong>1. Brute Force (Nested Loops)</strong><br />
+                    Compare each pair of elements to check for equality. This is
+                    <code>O(n²)</code> time.
+                  </p>
+                  <p
+                    style="
+                      margin-bottom: 0.5rem;
+                      border-top: 1px solid #ddd;
+                      padding-top: 0.5rem;
+                    "
+                  >
+                    <strong>2. Sorting + Scan</strong><br />
+                    Sort the array then check adjacent elements. Sorting costs
+                    <code>O(n log n)</code> time.
+                  </p>
+                </div>
+              </div>
+
+              <div class="solution-column">
+                <h3
+                  style="
+                    font-size: 1rem;
+                    color: #34495e;
+                    margin: 0 0 0.75rem 0;
+                    padding-left: 0;
+                    border-left: none;
+                  "
+                >
+                  <i
+                    class="fas fa-check-circle"
+                    style="color: #27ae60; margin-right: 0.5rem"
+                  ></i
+                  >Optimal Solution
+                </h3>
+                <div class="intuition-box">
+                  <p>
+                    Use a <span class="highlight">hash set</span> to track
+                    values we have seen. If we encounter a value already in the
+                    set, we found a duplicate.
+                  </p>
+                  <p style="margin-top: 0.5rem">
+                    <strong>Why this works:</strong> A hash set provides
+                    <code>O(1)</code> average-time lookups and insertions, so we
+                    can detect duplicates in a single pass.
+                  </p>
+                  <p style="margin-top: 0.5rem">
+                    <strong>Algorithmic Pattern:</strong>
+                    <span class="highlight">Hash Set (One-Pass)</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2>Algorithm for Optimal Solution</h2>
+            <div class="algorithm-steps">
+              <ol>
+                <li>Initialize an empty hash set.</li>
+                <li>Iterate through each number in <code>nums</code>.</li>
+                <li>
+                  If the number is already in the set:
+                  <ul>
+                    <li>Return <code>true</code> (duplicate found).</li>
+                    <li>Otherwise, add the number to the set.</li>
+                  </ul>
+                </li>
+                <li>If the loop ends, return <code>false</code>.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="solutions-grid">
+            <div class="section edge-cases">
+              <h2>Edge Cases</h2>
+              <ul>
+                <li>
+                  <strong>All unique values:</strong> Must return
+                  <code>false</code>.
+                </li>
+                <li>
+                  <strong>Immediate duplicate:</strong> Example
+                  <code>[2, 2]</code> should return <code>true</code> quickly.
+                </li>
+                <li>
+                  <strong>Large input:</strong> Ensure linear time with a hash
+                  set for <code>10^5</code> items.
+                </li>
+                <li>
+                  <strong>Negative values:</strong> Hash set handles negatives
+                  without special cases.
+                </li>
+              </ul>
+            </div>
+
+            <div class="section">
+              <h2>Complexity</h2>
+              <table class="complexity-table">
+                <thead>
+                  <tr>
+                    <th>Approach</th>
+                    <th>Time Complexity</th>
+                    <th>Space Complexity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Brute Force (nested loops)</td>
+                    <td>O(n²)</td>
+                    <td>O(1)</td>
+                  </tr>
+                  <tr>
+                    <td>Sorting + Scan</td>
+                    <td>O(n log n)</td>
+                    <td>O(1)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Hash Set (Optimal)</strong></td>
+                    <td><strong>O(n)</strong></td>
+                    <td><strong>O(n)</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="implementation-section">
+          <div class="section">
+            <h2>Optimal Solution Implementation</h2>
+          </div>
+
+          <div class="code-implementations-grid">
+            <div class="code-block">
+              <div class="code-label"><i class="fab fa-java"></i>Java</div>
+              <pre><code class="language-java">import java.util.HashSet;
+import java.util.Set;
+
+public class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set&lt;Integer&gt; seen = new HashSet&lt;&gt;();
+        for (int num : nums) {
+            if (seen.contains(num)) {
+                return true;
+            }
+            seen.add(num);
+        }
+        return false;
+    }
+}</code></pre>
+            </div>
+
+            <div class="code-block">
+              <div class="code-label">
+                <i class="fab fa-python"></i>Python
+                <a
+                  href="https://vladflore.tech/filingcabinet/codebox/runcodebox.html#contains_duplicate"
+                  target="_blank"
+                  style="
+                    margin-left: 0.5rem;
+                    color: #2980b9;
+                    text-decoration: none;
+                  "
+                  ><i class="fas fa-external-link-alt"></i
+                ></a>
+              </div>
+              <pre><code class="language-python">def containsDuplicate(nums):
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return True
+        seen.add(num)
+    return False</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>
