@@ -38,7 +38,11 @@ const fs = require("fs");
           margin: { top: "15mm", bottom: "15mm", left: "12mm", right: "12mm" },
           scale: 0.95,
           displayHeaderFooter: true,
-          headerTemplate: '<div style="width: 100%;"></div>',
+          headerTemplate: `<div style="width: 100%; padding: 0 12mm; font-family: Arial, sans-serif;">
+            <div style="display: flex; align-items: center; justify-content: flex-end; color: #2c3e50;">
+              <span style="font-size: 9px; font-weight: 600; letter-spacing: 0.2px;">© vladflore.tech</span>
+            </div>
+          </div>`,
           footerTemplate:
             '<div style="font-size: 10px; width: 100%; text-align: center; color: #666; margin: 0; padding: 0;"><span class="pageNumber"></span></div>',
         });
