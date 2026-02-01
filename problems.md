@@ -1,0 +1,12 @@
+- Two Sum
+- Contains Duplicate
+- Group Anagrams
+- Integer is Palindrome
+- String is Palindrome
+- Longest Common Prefix
+- Perfect Squares
+- Valid Anagram
+- Valid Parentheses
+- Reverse Integer
+- Delete Duplicates from Sorted Array
+- Reverse All Words in a String
