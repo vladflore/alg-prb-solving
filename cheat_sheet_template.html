@@ -418,16 +418,13 @@
   </head>
   <body>
     <div class="container">
-      <!-- REPLACE: Problem title -->
       <h1>[Problem Name]</h1>
 
       <div class="content-grid">
         <div class="main-content">
-          <!-- SECTION 1: Problem Description -->
           <div class="section">
             <h2>Problem</h2>
             <div class="problem-box">
-              <!-- REPLACE: Problem statement with parameters, constraints, and examples -->
               [Problem statement goes here. Include:]
               <br /><br />
               • Input parameters and their types<br />
@@ -440,12 +437,10 @@
             </div>
           </div>
 
-          <!-- SECTION 2: Solutions Overview -->
           <div class="section">
             <h2>Solutions</h2>
 
             <div class="solutions-grid">
-              <!-- Suboptimal Solutions Column -->
               <div class="solution-column">
                 <h3
                   style="
@@ -470,7 +465,6 @@
                     font-size: 0.9rem;
                   "
                 >
-                  <!-- REPLACE: List suboptimal approaches -->
                   <p style="margin-bottom: 0.5rem">
                     <strong>1. [Approach Name]</strong><br />
                     [Brief description of the approach and why it's suboptimal]
@@ -485,11 +479,9 @@
                     <strong>2. [Approach Name]</strong><br />
                     [Brief description of the approach and why it's suboptimal]
                   </p>
-                  <!-- ADD MORE as needed -->
                 </div>
               </div>
 
-              <!-- Optimal Solution Column -->
               <div class="solution-column">
                 <h3
                   style="
@@ -507,7 +499,6 @@
                   >Optimal Solution
                 </h3>
                 <div class="intuition-box">
-                  <!-- REPLACE: Explain the key insight and intuition -->
                   <p>
                     [Explain the key insight. What makes this approach optimal?
                     Use <span class="highlight">highlighting</span> for key
@@ -521,18 +512,15 @@
                   <p style="margin-top: 0.5rem">
                     <strong>Algorithmic Pattern:</strong>
                     <span class="highlight">[Pattern Name]</span>
-                    <!-- Examples: Two Pointers, Sliding Window, Dynamic Programming, Greedy, etc. -->
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- SECTION 3: Algorithm Steps -->
           <div class="section">
             <h2>Algorithm for Optimal Solution</h2>
             <div class="algorithm-steps">
-              <!-- REPLACE: Step-by-step algorithm -->
               <ol>
                 <li>[Step 1 description]</li>
                 <li>[Step 2 description]</li>
@@ -544,18 +532,14 @@
                   </ul>
                 </li>
                 <li>[Step 4 description]</li>
-                <!-- ADD MORE steps as needed -->
               </ol>
             </div>
           </div>
 
-          <!-- SECTION 4: Edge Cases & Complexity -->
           <div class="solutions-grid">
-            <!-- Edge Cases -->
             <div class="section edge-cases">
               <h2>Edge Cases</h2>
               <ul>
-                <!-- REPLACE: Problem-specific edge cases -->
                 <li>
                   <strong>[Edge case category]:</strong> [How to handle it]
                 </li>
@@ -568,11 +552,9 @@
                 <li>
                   <strong>[Edge case category]:</strong> [How to handle it]
                 </li>
-                <!-- ADD MORE as needed -->
               </ul>
             </div>
 
-            <!-- Complexity Analysis -->
             <div class="section">
               <h2>Complexity</h2>
               <table class="complexity-table">
@@ -584,7 +566,6 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- REPLACE: Add rows for each approach -->
                   <tr>
                     <td>[Approach 1 name]</td>
                     <td>[Time complexity]</td>
@@ -600,71 +581,39 @@
                     <td><strong>[Time complexity]</strong></td>
                     <td><strong>[Space complexity]</strong></td>
                   </tr>
-                  <!-- ADD MORE rows as needed -->
                 </tbody>
               </table>
             </div>
           </div>
         </div>
 
-        <!-- SECTION 5: Code Implementations -->
         <div class="implementation-section">
           <div class="section">
             <h2>Optimal Solution Implementation</h2>
           </div>
 
           <div class="code-implementations-grid">
-            <!-- Java Implementation -->
             <div class="code-block">
-              <div class="code-label"><i class="fab fa-java"></i>Java</div>
-              <pre><code class="language-java">// REPLACE: Java implementation
-public [ReturnType] methodName([Parameters]) {
-    // Add implementation here
-    // Include comments explaining key steps
-    
-    return result;
-}</code></pre>
+              <div class="code-label">
+                <i class="fab fa-java"></i>Java
+                <a
+                  href=""
+                  target="_blank"
+                  style="
+                    margin-left: 0.5rem;
+                    color: #2980b9;
+                    text-decoration: none;
+                  "
+                  ><i class="fas fa-external-link-alt"></i
+                ></a>
+              </div>
+              <pre><code class="language-java"></code></pre>
             </div>
 
-            <!-- Python Implementation -->
             <div class="code-block">
               <div class="code-label"><i class="fab fa-python"></i>Python</div>
-              <pre><code class="language-python"># REPLACE: Python implementation
-def method_name(parameters):
-    """
-    [Brief description]
-    
-    Args:
-        param1: [Description]
-        param2: [Description]
-    
-    Returns:
-        [Return value description]
-    """
-    # Add implementation here
-    # Include comments explaining key steps
-    
-    return result</code></pre>
+              <pre><code class="language-python"></code></pre>
             </div>
-
-            <!-- OPTIONAL: Add more language implementations -->
-            <!-- 
-            <div class="code-block">
-              <div class="code-label"><i class="fab fa-js"></i>JavaScript</div>
-              <pre><code class="language-javascript">// JavaScript implementation
-function methodName(parameters) {
-    // Implementation
-}</code></pre>
-            </div>
-
-            <div class="code-block">
-              <div class="code-label"><i class="fab fa-cpp"></i>C++</div>
-              <pre><code class="language-cpp">// C++ implementation
-ReturnType methodName(Parameters) {
-    // Implementation
-}</code></pre>
-            </div>
-            -->
           </div>
         </div>
       </div>
