@@ -9,48 +9,39 @@ const fs = require("fs");
   await page.setViewport({ width: 1400, height: 900 });
 
   const problemsDir = path.resolve(__dirname, "problems");
-  const problems = fs.readdirSync(problemsDir);
+  const files = fs.readdirSync(problemsDir);
+  const htmlFiles = files.filter((file) => file.endsWith(".html"));
 
-  for (const problemFolder of problems) {
-    const folderPath = path.join(problemsDir, problemFolder);
-    const stats = fs.statSync(folderPath);
+  for (const htmlFile of htmlFiles) {
+    const htmlFilePath = path.join(problemsDir, htmlFile);
+    const pdfFileName = htmlFile.replace(".html", ".pdf");
+    const pdfFilePath = path.join(problemsDir, pdfFileName);
 
-    if (!stats.isDirectory()) continue;
+    try {
+      await page.goto(`file://${htmlFilePath}`, {
+        waitUntil: "networkidle0",
+      });
 
-    const files = fs.readdirSync(folderPath);
-    const htmlFiles = files.filter((file) => file.endsWith(".html"));
+      await page.pdf({
+        path: pdfFilePath,
+        format: "A4",
+        landscape: true,
+        printBackground: true,
+        margin: { top: "15mm", bottom: "15mm", left: "12mm", right: "12mm" },
+        scale: 0.95,
+        displayHeaderFooter: true,
+        headerTemplate: `<div style="width: 100%; padding: 0 12mm; font-family: Arial, sans-serif;">
+          <div style="display: flex; align-items: center; justify-content: flex-end; color: #2c3e50;">
+            <span style="font-size: 9px; font-weight: 600; letter-spacing: 0.2px;">© vladflore.tech</span>
+          </div>
+        </div>`,
+        footerTemplate:
+          '<div style="font-size: 10px; width: 100%; text-align: center; color: #666; margin: 0; padding: 0;"><span class="pageNumber"></span></div>',
+      });
 
-    for (const htmlFile of htmlFiles) {
-      const htmlFilePath = path.join(folderPath, htmlFile);
-      const pdfFileName = htmlFile.replace(".html", ".pdf");
-      const pdfFilePath = path.join(folderPath, pdfFileName);
-
-      try {
-        await page.goto(`file://${htmlFilePath}`, {
-          waitUntil: "networkidle0",
-        });
-
-        await page.pdf({
-          path: pdfFilePath,
-          format: "A4",
-          landscape: true,
-          printBackground: true,
-          margin: { top: "15mm", bottom: "15mm", left: "12mm", right: "12mm" },
-          scale: 0.95,
-          displayHeaderFooter: true,
-          headerTemplate: `<div style="width: 100%; padding: 0 12mm; font-family: Arial, sans-serif;">
-            <div style="display: flex; align-items: center; justify-content: flex-end; color: #2c3e50;">
-              <span style="font-size: 9px; font-weight: 600; letter-spacing: 0.2px;">© vladflore.tech</span>
-            </div>
-          </div>`,
-          footerTemplate:
-            '<div style="font-size: 10px; width: 100%; text-align: center; color: #666; margin: 0; padding: 0;"><span class="pageNumber"></span></div>',
-        });
-
-        console.log(`PDF generated: ${pdfFilePath}`);
-      } catch (error) {
-        console.error(`Error processing ${htmlFilePath}:`, error.message);
-      }
+      console.log(`PDF generated: ${pdfFilePath}`);
+    } catch (error) {
+      console.error(`Error processing ${htmlFilePath}:`, error.message);
     }
   }
 
