@@ -1,12 +1,15 @@
-- Two Sum
-- Contains Duplicate
-- Group Anagrams
-- Integer is Palindrome
-- String is Palindrome
-- Longest Common Prefix
-- Perfect Squares
-- Valid Anagram
-- Valid Parentheses
-- Reverse Integer
-- Delete Duplicates from Sorted Array
-- Reverse All Words in a String
+| #   | Problem                       | Java | Python | Codebox | Cheat Sheet | Video Java | YT Visibility |
+| --- | ----------------------------- | ---- | ------ | ------- | ----------- | ---------- | ------------- |
+| 1   | Two Sum                       | ✅   | ❌     | 📃      | ❌          | ❌         |               |
+| 2   | Contains Duplicate            | ❌   | ✅     | 📃      | ❌          | ❌         |               |
+| 3   | Group Anagrams                | ❌   | ✅     | 📃      | ❌          | ❌         |               |
+| 4   | Integer Is Palindrome         | ❌   | ✅     | 📃      | ❌          | ❌         |               |
+| 5   | String Is Palindrome          | ✅   | ✅     | 📃      | ❌          | ✅         | public        |
+| 6   | Longest Common Prefix         | ✅   | ❌     | 📃      | ❌          | ❌         |               |
+| 7   | Perfect Squares               | ✅   | ❌     | 📃      | ❌          | ❌         |               |
+| 8   | Valid Anagram                 | ❌   | ✅     | 📃      | ❌          | ❌         |               |
+| 9   | Valid Parentheses             | ❌   | ✅     | 📃      | ❌          | ❌         |               |
+| 10  | Reverse Integer               | ❌   | ❌     | ❌      | ❌          | ❌         |               |
+| 11  | Reverse All Words In A String | ❌   | ❌     | ❌      | ❌          | ❌         |               |
+| 12  | Binary Search                 | ❌   | ❌     | ❌      | ❌          | ❌         |               |
+| 13  | Is Happy Number               | ❌   | ❌     | ❌      | ❌          | ❌         |               |
