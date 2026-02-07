@@ -3,7 +3,7 @@
 | 1   | Two Sum                       | ✅   | ❌     | 📃      | ❌          | ❌         |               |
 | 2   | Contains Duplicate            | ❌   | ✅     | 📃      | ❌          | ❌         |               |
 | 3   | Group Anagrams                | ❌   | ✅     | 📃      | ❌          | ❌         |               |
-| 4   | Integer Is Palindrome         | ❌   | ✅     | 📃      | ❌          | ❌         |               |
+| 4   | Integer Is Palindrome         | ✅   | ✅     | 📃      | ❌          | ✅         | public        |
 | 5   | String Is Palindrome          | ✅   | ✅     | 📃      | ❌          | ✅         | public        |
 | 6   | Longest Common Prefix         | ✅   | ❌     | 📃      | ❌          | ❌         |               |
 | 7   | Perfect Squares               | ✅   | ❌     | 📃      | ❌          | ❌         |               |
