@@ -11,5 +11,5 @@
 | 9   | Valid Parentheses             | ❌   | ✅     | 📃      | ❌          | ❌         |               |
 | 10  | Reverse Integer               | ❌   | ❌     | ❌      | ❌          | ❌         |               |
 | 11  | Reverse All Words In A String | ❌   | ❌     | ❌      | ❌          | ❌         |               |
-| 12  | Binary Search                 | ❌   | ❌     | ❌      | ❌          | ❌         |               |
+| 12  | Binary Search                 | ✅   | ✅     | 📃      | ❌          | ✅         | public        |
 | 13  | Is Happy Number               | ❌   | ❌     | ❌      | ❌          | ❌         |               |
